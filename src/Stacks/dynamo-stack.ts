@@ -6,9 +6,20 @@ export class DynamoStack extends cdk.Stack {
     super(scope, id, props);
 
 
-    const table = new dynamodb.Table(this, 'Table', {
+    const notificationTable = new dynamodb.Table(this, 'Table', {
     partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
-    billingMode: dynamodb.BillingMode.PAY_PER_REQUEST
+    billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    tableName:"graphql-api-dev-notification-table"
+    });
+
+    notificationTable.addGlobalSecondaryIndex({
+      indexName:'targetIdGlobalIndex',
+      partitionKey:{name:'targetId', type:dynamodb.AttributeType.STRING}
+    });
+
+    notificationTable.addGlobalSecondaryIndex({
+      indexName:'userIdGlobalIndex',
+      partitionKey:{name:'userId', type:dynamodb.AttributeType.STRING}
     });
   }
 }
