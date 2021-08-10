@@ -1,5 +1,5 @@
 # serverless-stack
-Infrusturce as code to deploy a SPA, API, and NoSql Database on AWS. This project will be written in Typescript and use the AWS CDK.
+Infrastructure as code to deploy a SPA, API, and NoSql Database on AWS. This project will be written in Typescript and use the AWS CDK.
 
 # SPA
 The single page application is a containerized Angular app that will be run on a ECS cluster. Amazon ECS leverages serverless technology from AWS Fargate to deliver autonomous container operations, which reduces the time spent on configuration, patching, and security.
